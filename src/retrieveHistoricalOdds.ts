@@ -1,4 +1,6 @@
 import launchBrowser from './config/puppeteerConfig';
+import getAllPages from './utils/getAllPages';
+import scrollToBottom from './utils/scrollToBottom';
 
 /**
  * Retrieves historical match URLs for a given country, league, and year.
@@ -8,7 +10,7 @@ export default async function retrieveHistoricalOdds(
   league: string,
   year: string,
 ): Promise<void> {
-  const browser = await launchBrowser(); // TO-DO - Add parameters for launching puppeteer browser
+  const browser = await launchBrowser();
   const url = `https://www.oddsportal.com/football/${country}/${league}-${year}-${+year + 1}/results/`;
 
   console.info(`Starting match URL collection for: ${url}`);
@@ -16,9 +18,9 @@ export default async function retrieveHistoricalOdds(
   try {
     const page = await browser.newPage();
     await page.goto(url);
-    await scrollToBottom(page); // TO-DO - Add function to go to the end of the page to load the full content of the page
+    await scrollToBottom(page);
 
-    const pages: string[] = await getAllPages(page); // TO-DO - Retrieve all the pages numbers of the pagination
+    const pages: string[] = await getAllPages(page);
     const allMatchLinks: string[] = [];
 
     for (const pageNumber of pages) {
