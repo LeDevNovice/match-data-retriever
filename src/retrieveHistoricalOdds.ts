@@ -1,4 +1,6 @@
 import launchBrowser from './config/puppeteerConfig';
+
+import collectMatchLinks from './utils/collectMatchLinks';
 import getAllPages from './utils/getAllPages';
 import scrollToBottom from './utils/scrollToBottom';
 
@@ -27,7 +29,7 @@ export default async function retrieveHistoricalOdds(
       const pageUrl = `${url}#/page/${pageNumber}`;
       console.info(`Collecting links from page: ${pageUrl}`);
 
-      const matchLinks = await collectMatchLinks(page, pageUrl); // TO-DO - Retrieve all the links of each matches
+      const matchLinks = await collectMatchLinks(page, pageUrl);
       allMatchLinks.push(...matchLinks);
     }
 
