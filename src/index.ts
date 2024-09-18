@@ -1,6 +1,6 @@
-import retrieveHistoricalOdds from './utils/retrieveHistoricalOdds';
 import checkCommandLineArgs from './utils/checkCommandLineArgs';
 import { processMatchesInBatches } from './controllers/batchProcessor';
+import retrieveHistoricalOdds from './utils/retrieveHistoricalOdds';
 
 async function main(): Promise<void> {
   try {
