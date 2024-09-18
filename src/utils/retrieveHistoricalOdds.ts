@@ -1,3 +1,5 @@
+import launchBrowser from '../config/puppeteerConfig';
+
 /**
  * Retrieves historical match URLs for a given country, league, and year.
  */
