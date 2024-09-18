@@ -1,13 +1,14 @@
-import launchBrowser from './config/puppeteerConfig';
+import launchBrowser from '../config/puppeteerConfig';
 
 import collectMatchLinks from './utils/collectMatchLinks';
 import getAllPages from './utils/getAllPages';
-import scrollToBottom from './utils/scrollToBottom';
+import { saveMatchLinks } from './utils/saveMatchLinks';
+import scrollToBottom from '../utils/scrollToBottom';
 
 /**
  * Retrieves historical match URLs for a given country, league, and year.
  */
-export default async function retrieveHistoricalOdds(
+export default async function retrieveMatchesLinks(
   country: string,
   league: string,
   year: string,
@@ -33,7 +34,7 @@ export default async function retrieveHistoricalOdds(
       allMatchLinks.push(...matchLinks);
     }
 
-    await saveMatchLinks(allMatchLinks); // TO-DO - Save match links to a file for batch processing
+    await saveMatchLinks(allMatchLinks);
   } catch (error) {
     console.error(`Error occurred during match URL collection: ${error}`);
     throw error;

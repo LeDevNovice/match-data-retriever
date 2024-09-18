@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { fileURLToPath } from 'url';
 
 // Convertir l'URL du fichier en chemin absolu
 const __filename = fileURLToPath(import.meta.url);
