@@ -3,7 +3,7 @@ import launchBrowser from '../config/puppeteerConfig';
 import collectMatchLinks from './utils/collectMatchLinks';
 import getAllPages from './utils/getAllPages';
 import { saveMatchLinks } from './utils/saveMatchLinks';
-import scrollToBottom from '../utils/scrollToBottom';
+import scrollToBottom from '../common/scrollToBottom';
 
 /**
  * Retrieves historical match URLs for a given country, league, and year.

@@ -1,5 +1,5 @@
-import checkCommandLineArgs from './utils/checkCommandLineArgs';
-import { processMatchesInBatches } from './controllers/batchProcessor';
+import checkCommandLineArgs from './common/checkCommandLineArgs';
+import processMatchesInBatches from './processMatchesInBatches/processMatchesInBatches';
 import retrieveMatchesLinks from './retrieveMatchesLinks/retrieveMatchesLinks';
 
 const MAX_API_CALLS_PER_DAY = 100;
