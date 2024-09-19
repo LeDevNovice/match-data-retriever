@@ -1,6 +1,6 @@
 import { Page } from 'puppeteer';
 
-import { BookmakerOdds } from '../../models/interfaces/matchOddsData.interface';
+import { BookmakerOdds } from '../../../models/interfaces/matchOddsData.interface';
 
 /**
  * Extracts odds data from the provided Puppeteer page element.
