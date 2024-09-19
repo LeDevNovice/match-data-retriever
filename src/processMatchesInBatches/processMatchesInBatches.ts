@@ -3,6 +3,7 @@ import path from 'path';
 
 import loadProcessedMatches from './utils/loadProcessedMatches';
 import saveProcessedMatch from './utils/saveProcessedMatches';
+import retrieveMatchOddsAndData from '../retrieveMatchOddsAndData/retrieveMatchOddsAndData';
 
 /**
  * Processes matches scraping in batches.
@@ -21,7 +22,7 @@ export default async function processMatchesInBatches(batchSize: number): Promis
     const batch = pendingLinks.slice(i, i + batchSize);
 
     for (const matchUrl of batch) {
-      await retrieveMatchOddsAndData(`https://www.oddsportal.com${matchUrl}`); // TO-DO - Implement scraping odds and retrieve data logic
+      await retrieveMatchOddsAndData(`https://www.oddsportal.com${matchUrl}`);
       // Save the processed match URL
       await saveProcessedMatch(matchUrl);
     }
