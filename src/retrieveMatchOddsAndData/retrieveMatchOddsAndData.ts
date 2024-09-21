@@ -28,8 +28,7 @@ export default async function retrieveMatchOddsAndData(matchUrl: string): Promis
     const teamId = teamIdMap[oddsData.homeTeam.toLowerCase()];
     const date = convertDateFormat(oddsData.date);
 
-    const [lineupData, injuriesData, statisticsData, eventsData, playersData] =
-      await retrieveMatchData(teamId, leagueId, year, date);
+    const matchData = await retrieveMatchData(teamId, leagueId, year, date);
 
     // Assemble all data
     const combinedData = {
@@ -45,11 +44,11 @@ export default async function retrieveMatchOddsAndData(matchUrl: string): Promis
       // Odds data
       odds: oddsData.odds,
       // Additional data
-      lineup: lineupData,
-      injuries: injuriesData,
-      statistics: statisticsData,
-      events: eventsData,
-      players: playersData,
+      lineup: matchData.lineupData,
+      injuries: matchData.injuriesData,
+      statistics: matchData.statisticsData,
+      events: matchData.eventsData,
+      players: matchData.playersData,
     };
 
     console.log(JSON.stringify(combinedData, null, 2));
@@ -57,8 +56,8 @@ export default async function retrieveMatchOddsAndData(matchUrl: string): Promis
     // // Save data to JSON
     // await saveDataToJSON(combinedData);
 
-    // // Send data to Elasticsearch
-    // await sendDataToElasticsearch(combinedData);
+    // Send data to Elasticsearch
+    await sendDataToElasticsearch(combinedData);
 
     await browser.close();
   } catch (error) {
