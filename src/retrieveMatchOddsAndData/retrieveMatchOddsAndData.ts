@@ -7,6 +7,7 @@ import { convertDateFormat } from './utils/extractFromUrl/convertDateFormat';
 import { extractLeagueFromUrl } from './utils/extractFromUrl/extractLeagueFromUrl';
 import { extractYearFromUrl } from './utils/extractFromUrl/extractYearFromUrl';
 import retrieveMatchOdds from './retrieveMatchOdds/retrieveMatchOdds';
+import { sendDataToElasticsearch } from '../services/elasticsearchService';
 
 export default async function retrieveMatchOddsAndData(matchUrl: string): Promise<void> {
   try {
