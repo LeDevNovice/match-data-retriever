@@ -10,18 +10,17 @@ export default async function retrieveMatchOddsAndData(matchUrl: string): Promis
 
     await scrollToBottom(page);
 
-    // Scrape the odds match
     const oddsData = await retrieveMatchOdds(page, matchUrl);
 
     if (!oddsData) {
-      throw new Error('Failed to scrape match odds data.');
+      throw new Error('Failed to scrape odds data.');
     }
 
-    const year = extractYearFromUrl(matchUrl) || new Date().getFullYear().toString();
-    const leagueName = oddsData.league || extractLeagueFromUrl(matchUrl);
-    const leagueId = leagueIdMap[leagueName.toLowerCase()];
-    const teamId = teamIdMap[oddsData.homeTeam.toLowerCase()];
-    const date = convertDateFormat(oddsData.date);
+    // const year = extractYearFromUrl(matchUrl);
+    // const leagueName = oddsData.league || extractLeagueFromUrl(matchUrl);
+    // const leagueId = leagueIdMap[leagueName.toLowerCase()];
+    // const teamId = teamIdMap[oddsData.homeTeam.toLowerCase()];
+    // const date = convertDateFormat(oddsData.date);
 
     // Fetch data from APIs
     const matchId = await fetchMatchId(teamId, Number(leagueId), Number(year), date); // Extract match ID
@@ -45,7 +44,6 @@ export default async function retrieveMatchOddsAndData(matchUrl: string): Promis
       awayTeam: oddsData.awayTeam,
       score: oddsData.score,
       league: leagueName,
-      round: oddsData.round,
       season: `${year}-${Number(year) + 1}`,
       // Odds data
       odds: oddsData.odds,
