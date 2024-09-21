@@ -3,9 +3,9 @@ import launchBrowser from '../config/puppeteerConfig';
 import { leagueIdMap } from '../models/mappings/leagues.mapping';
 import { teamIdMap } from '../models/mappings/teams.mapping';
 import retrieveMatchData from './retrieveMatchData/retrieveMatchData';
-import { convertDateFormat } from './retrieveMatchData/utils/convertDateFormat';
-import { extractLeagueFromUrl } from './retrieveMatchData/utils/extractFromUrl/extractLeagueFromUrl';
-import { extractYearFromUrl } from './retrieveMatchData/utils/extractFromUrl/extractYearFromUrl';
+import { convertDateFormat } from './utils/extractFromUrl/convertDateFormat';
+import { extractLeagueFromUrl } from './utils/extractFromUrl/extractLeagueFromUrl';
+import { extractYearFromUrl } from './utils/extractFromUrl/extractYearFromUrl';
 import retrieveMatchOdds from './retrieveMatchOdds/retrieveMatchOdds';
 
 export default async function retrieveMatchOddsAndData(matchUrl: string): Promise<void> {

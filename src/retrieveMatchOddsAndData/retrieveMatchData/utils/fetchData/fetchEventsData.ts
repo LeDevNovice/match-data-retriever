@@ -10,9 +10,9 @@ const headers = {
   'x-apisports-key': API_KEY,
 };
 
-export async function fetchLineupData(matchId: number) {
+export async function fetchEventsData(matchId: number) {
   const response = await fetch(
-    `https://v3.football.api-sports.io/fixtures/lineups?fixture=${matchId}`,
+    `https://v3.football.api-sports.io/fixtures/events?fixture=${matchId}`,
     { headers },
   );
   const data = await response.json();
