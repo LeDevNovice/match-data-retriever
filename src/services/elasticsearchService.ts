@@ -12,7 +12,7 @@ const client = new Client({
 export async function sendDataToElasticsearch(data: any): Promise<void> {
   try {
     const response = await client.index({
-      index: 'fixtures',
+      index: 'fixtures-3',
       document: data,
     });
 

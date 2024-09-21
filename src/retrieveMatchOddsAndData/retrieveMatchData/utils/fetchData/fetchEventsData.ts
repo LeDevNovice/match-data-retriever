@@ -1,3 +1,6 @@
+import * as dotenv from 'dotenv';
+dotenv.config();
+
 const API_KEY = process.env.API_SPORTS_KEY;
 
 if (!API_KEY) {

@@ -31,11 +31,10 @@ export default async function retrieveMatchOddsAndData(matchUrl: string): Promis
 
     const matchData = await retrieveMatchData(teamId, leagueId, year, date);
 
-    // Assemble all data
     const combinedData = {
       // Root-level properties
       day: oddsData.day,
-      date: date, // Use converted date format
+      date: date,
       time: oddsData.time,
       homeTeam: oddsData.homeTeam,
       awayTeam: oddsData.awayTeam,

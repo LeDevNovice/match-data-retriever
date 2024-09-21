@@ -10,6 +10,7 @@
   },
   "packageManager": "pnpm@9.4.0",
   "scripts": {
+    "start": "ts-node src/index.ts",
     "build": "tsc && tsc-alias",
     "test": "jest",
     "test:cov": "jest --coverage",
@@ -18,9 +19,11 @@
   },
   "dependencies": {
     "@elastic/elasticsearch": "^8.15.0",
+    "dotenv": "^16.4.5",
     "puppeteer": "^23.4.0",
     "puppeteer-extra": "^3.3.6",
-    "puppeteer-extra-plugin-stealth": "^2.11.2"
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
+    "ts-node": "^10.9.2"
   },
   "devDependencies": {
     "@eslint/compat": "^1.1.0",
