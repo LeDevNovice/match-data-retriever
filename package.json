@@ -1,7 +1,7 @@
 {
   "name": "betting-odds-scraper",
   "version": "1.0.0",
-  "description": "A TypeScript program to retrieve historical and next sport fixtures betting odds ",
+  "description": "A TypeScript program to retrieve historical match odds and data",
   "author": "LeDevNovice",
   "license": "MIT",
   "type": "module",
