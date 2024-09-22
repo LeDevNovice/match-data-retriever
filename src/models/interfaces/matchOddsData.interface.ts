@@ -11,6 +11,13 @@ export interface MatchOddsData {
   time: string;
   homeTeam: string;
   awayTeam: string;
+  league: string;
+  season: string;
   score: string;
   odds: BookmakerOdds[];
+  // lineup: LineupData;
+  // injuries: InjuriesData;
+  // statistics: StatisticsData;
+  // events: EventsData;
+  // players: PlayersData;
 }

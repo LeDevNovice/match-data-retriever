@@ -1,0 +1,465 @@
+{
+  "mappings": {
+    "properties": {
+      "day": {
+        "type": "keyword"
+      },
+      "date": {
+        "type": "date"
+      },
+      "time": {
+        "type": "keyword"
+      },
+      "homeTeam": {
+        "type": "keyword"
+      },
+      "awayTeam": {
+        "type": "keyword"
+      },
+      "score": {
+        "type": "keyword"
+      },
+      "league": {
+        "type": "keyword"
+      },
+      "season": {
+        "type": "keyword"
+      },
+      "odds": {
+        "type": "nested",
+        "properties": {
+          "bookMakerName": {
+            "type": "keyword"
+          },
+          "homeWin": {
+            "type": "float",
+            "null_value": -1.00
+          },
+          "draw": {
+            "type": "float",
+            "null_value": -1.00
+          },
+          "awayWin": {
+            "type": "float",
+            "null_value": -1.00
+          }
+        }
+      },
+      "lineup": {
+        "type": "nested",
+        "properties": {
+          "team": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "keyword"
+              },
+              "logo": {
+                "type": "keyword"
+              },
+              "colors": {
+                "type": "object",
+                "properties": {
+                  "player": {
+                    "properties": {
+                      "primary": { "type": "keyword" },
+                      "number": { "type": "keyword" },
+                      "border": { "type": "keyword" }
+                    }
+                  },
+                  "goalkeeper": {
+                    "properties": {
+                      "primary": { "type": "keyword" },
+                      "number": { "type": "keyword" },
+                      "border": { "type": "keyword" }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "coach": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "keyword"
+              },
+              "photo": {
+                "type": "keyword"
+              }
+            }
+          },
+          "formation": {
+            "type": "keyword"
+          },
+          "startXI": {
+            "type": "nested",
+            "properties": {
+              "player": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "name": {
+                    "type": "keyword"
+                  },
+                  "number": {
+                    "type": "integer"
+                  },
+                  "pos": {
+                    "type": "keyword"
+                  },
+                  "grid": {
+                    "type": "keyword"
+                  }
+                }
+              }
+            }
+          },
+          "substitutes": {
+            "type": "nested",
+            "properties": {
+              "player": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "name": {
+                    "type": "keyword"
+                  },
+                  "number": {
+                    "type": "integer"
+                  },
+                  "pos": {
+                    "type": "keyword"
+                  },
+                  "grid": {
+                    "type": "keyword",
+                    "null_value": "null"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "injuries": {
+        "type": "nested",
+        "properties": {
+          "player": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "integer" },
+              "name": { "type": "keyword" },
+              "photo": { "type": "keyword" },
+              "type": { "type": "keyword" },
+              "reason": { "type": "keyword" }
+            }
+          },
+          "team": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "integer" },
+              "name": { "type": "keyword" },
+              "logo": { "type": "keyword" }
+            }
+          },
+          "fixture": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "integer" },
+              "timezone": { "type": "keyword" },
+              "date": {"type": "date"},
+              "timestamp": { "type": "integer" }
+            }
+          },
+          "league": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "integer" },
+              "season": { "type": "integer" },
+              "name": { "type": "keyword" },
+              "country": { "type": "keyword" },
+              "logo": { "type": "keyword" },
+              "flag": { "type": "keyword" }
+            }
+          }
+        }
+      },
+      "statistics": {
+        "type": "nested",
+        "properties": {
+          "team": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "integer" },
+              "name": { "type": "keyword" },
+              "logo": { "type": "keyword" }
+            }
+          },
+          "statistics": {
+            "type": "nested",
+            "properties": {
+              "type": { "type": "keyword" },
+              "value": {
+                "type": "keyword",
+                "null_value": "null"
+              }
+            }
+          }
+        }
+      },
+      "events": {
+        "type": "nested",
+        "properties": {
+          "time": {
+            "type": "object",
+            "properties": {
+              "elapsed": { "type": "integer" },
+              "extra": {
+                "type": "integer",
+                "null_value": -1
+              }
+            }
+          },
+          "team": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "integer" },
+              "name": { "type": "keyword" },
+              "logo": { "type": "keyword" }
+            }
+          },
+          "player": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "integer" },
+              "name": { "type": "keyword" }
+            }
+          },
+          "assist": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "null_value": -1
+              },
+              "name": {
+                "type": "keyword",
+                "null_value": "null"
+              }
+            }
+          },
+          "type": {
+            "type": "keyword"
+          },
+          "detail": {
+            "type": "keyword"
+          },
+          "comments": {
+            "type": "keyword",
+            "null_value": "null"
+          }
+        }
+      },
+      "players": {
+        "type": "nested",
+        "properties": {
+          "team": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "integer" },
+              "name": { "type": "keyword" },
+              "logo": { "type": "keyword" },
+              "update": {
+                "type": "date"
+              }
+            }
+          },
+          "players": {
+            "type": "nested",
+            "properties": {
+              "player": {
+                "type": "object",
+                "properties": {
+                  "id": { "type": "integer" },
+                  "name": { "type": "keyword" },
+                  "photo": { "type": "keyword" }
+                }
+              },
+              "statistics": {
+                "type": "nested",
+                "properties": {
+                  "games": {
+                    "type": "object",
+                    "properties": {
+                      "minutes": {
+                        "type": "integer"
+                      },
+                      "number": {
+                        "type": "integer"
+                      },
+                      "position": { "type": "keyword" },
+                      "rating": {
+                        "type": "keyword"
+                      },
+                      "captain": { "type": "boolean" },
+                      "substitute": { "type": "boolean" }
+                    }
+                  },
+                  "offsides": {
+                    "type": "integer",
+                    "null_value": 0
+                  },
+                  "shots": {
+                    "type": "object",
+                    "properties": {
+                      "total": {
+                        "type": "integer",
+                        "null_value": 0
+                      },
+                      "on": {
+                        "type": "integer",
+                        "null_value": 0
+                      }
+                    }
+                  },
+                  "goals": {
+                    "type": "object",
+                    "properties": {
+                      "total": {
+                        "type": "integer",
+                        "null_value": 0
+                      },
+                      "conceded": {
+                        "type": "integer",
+                        "null_value": 0
+                      },
+                      "assists": {
+                        "type": "integer",
+                        "null_value": 0
+                      },
+                      "saves": {
+                        "type": "integer",
+                        "null_value": 0
+                      }
+                    }
+                  },
+                  "passes": {
+                    "type": "object",
+                    "properties": {
+                      "total": {
+                        "type": "integer",
+                        "null_value": 0
+                      },
+                      "key": {
+                        "type": "integer",
+                        "null_value": 0
+                      },
+                      "accuracy": {
+                        "type": "keyword"
+                      }
+                    }
+                  },
+                  "tackles": {
+                    "type": "object",
+                    "properties": {
+                      "total": {
+                        "type": "integer",
+                        "null_value": 0
+                      },
+                      "blocks": {
+                        "type": "integer",
+                        "null_value": 0
+                      },
+                      "interceptions": {
+                        "type": "integer",
+                        "null_value": 0
+                      }
+                    }
+                  },
+                  "duels": {
+                    "type": "object",
+                    "properties": {
+                      "total": {
+                        "type": "integer",
+                        "null_value": 0
+                      },
+                      "won": {
+                        "type": "integer",
+                        "null_value": 0
+                      }
+                    }
+                  },
+                  "dribbles": {
+                    "type": "object",
+                    "properties": {
+                      "attempts": {
+                        "type": "integer",
+                        "null_value": 0
+                      },
+                      "success": {
+                        "type": "integer",
+                        "null_value": 0
+                      },
+                      "past": {
+                        "type": "integer",
+                        "null_value": 0
+                      }
+                    }
+                  },
+                  "fouls": {
+                    "type": "object",
+                    "properties": {
+                      "drawn": {
+                        "type": "integer",
+                        "null_value": 0
+                      },
+                      "committed": {
+                        "type": "integer",
+                        "null_value": 0
+                      }
+                    }
+                  },
+                  "cards": {
+                    "type": "object",
+                    "properties": {
+                      "yellow": { "type": "integer" },
+                      "red": { "type": "integer" }
+                    }
+                  },
+                  "penalty": {
+                    "type": "object",
+                    "properties": {
+                      "won": {
+                        "type": "integer",
+                        "null_value": 0
+                      },
+                      "commited": {
+                        "type": "integer",
+                        "null_value": 0
+                      },
+                      "scored": { "type": "integer" },
+                      "missed": { "type": "integer" },
+                      "saved": {
+                        "type": "integer"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

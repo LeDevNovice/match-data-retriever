@@ -16,7 +16,7 @@ export const teamIdMap: { [key: string]: number } = {
   'strasbourg': 95,
   'toulouse': 96,
   'lorient': 97,
-  'ajaccio': 98,
+  'ac ajaccio': 98,
   'clermont': 99,
   'brest': 106,
   'auxerre': 108,

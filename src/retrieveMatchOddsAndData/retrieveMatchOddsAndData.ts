@@ -51,11 +51,6 @@ export default async function retrieveMatchOddsAndData(matchUrl: string): Promis
       players: matchData.playersData,
     };
 
-    console.log(JSON.stringify(combinedData, null, 2));
-
-    // // Save data to JSON
-    // await saveDataToJSON(combinedData);
-
     // Send data to Elasticsearch
     await sendDataToElasticsearch(combinedData);
 

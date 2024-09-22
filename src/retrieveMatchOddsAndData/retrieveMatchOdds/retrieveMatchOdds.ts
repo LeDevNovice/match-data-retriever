@@ -9,7 +9,7 @@ import extractOddsData from './utils/extractOddsData';
 export default async function retrieveMatchOdds(
   page: Page,
   link: string,
-): Promise<MatchOddsData | null> {
+): Promise<any> {
   try {
     await page.goto(link);
     await page.waitForSelector('div.bg-event-start-time');

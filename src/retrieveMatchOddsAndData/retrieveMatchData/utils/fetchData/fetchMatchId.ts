@@ -24,6 +24,7 @@ export async function fetchMatchId(
       `https://v3.football.api-sports.io/fixtures?team=${team}&date=${date}&league=${league}&season=${season}`,
       { headers },
     );
+
     const data = await response.json();
 
     if (!data.response || data.response.length === 0) {
