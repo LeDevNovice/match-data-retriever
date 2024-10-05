@@ -1,6 +1,9 @@
 {
   "mappings": {
     "properties": {
+      "id": {
+        "type": "keyword"
+      },
       "day": {
         "type": "keyword"
       },
@@ -33,15 +36,15 @@
           },
           "homeWin": {
             "type": "float",
-            "null_value": -1.00
+            "null_value": -1.0
           },
           "draw": {
             "type": "float",
-            "null_value": -1.00
+            "null_value": -1.0
           },
           "awayWin": {
             "type": "float",
-            "null_value": -1.00
+            "null_value": -1.0
           }
         }
       },
@@ -177,7 +180,7 @@
             "properties": {
               "id": { "type": "integer" },
               "timezone": { "type": "keyword" },
-              "date": {"type": "date"},
+              "date": { "type": "date" },
               "timestamp": { "type": "integer" }
             }
           },
