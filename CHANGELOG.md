@@ -11,3 +11,5 @@
 -->
 
 ## 1.0.0
+### Added
+- Implement data and odds betting retrievment logic.
