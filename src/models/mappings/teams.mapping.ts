@@ -23,5 +23,5 @@ export const teamIdMap: { [key: string]: number } = {
   'troyes': 110,
   'metz': 112,
   'lens': 116,
-  'saint-etienne': 1063,
+  'st etienne': 1063,
 };
