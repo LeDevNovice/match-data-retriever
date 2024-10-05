@@ -22,6 +22,7 @@ export default async function retrieveMatchData(
   ]);
 
   return {
+    matchId,
     lineupData,
     injuriesData,
     statisticsData,

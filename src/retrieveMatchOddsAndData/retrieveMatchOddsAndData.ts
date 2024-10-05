@@ -33,6 +33,7 @@ export default async function retrieveMatchOddsAndData(matchUrl: string): Promis
 
     const combinedData = {
       // Root-level properties
+      id: matchData.matchId,
       day: oddsData.day,
       date: date,
       time: oddsData.time,
